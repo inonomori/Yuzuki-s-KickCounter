@@ -13,10 +13,13 @@
 		ACD747452971B39900242EEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD747432971B39900242EEE /* Main.storyboard */; };
 		ACD747472971B39A00242EEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD747462971B39A00242EEE /* Assets.xcassets */; };
 		ACD7474A2971B39A00242EEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD747482971B39A00242EEE /* LaunchScreen.storyboard */; };
+		ACD7475229727A5C00242EEE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7475129727A5C00242EEE /* HistoryViewController.swift */; };
+		ACD7475429727E2C00242EEE /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7475329727E2C00242EEE /* EndViewController.swift */; };
+		ACD747562972840E00242EEE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD747552972840E00242EEE /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ACD7473A2971B39900242EEE /* 柚希东东计算器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "柚希东东计算器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD7473A2971B39900242EEE /* 柚希动动计数器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "柚希动动计数器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD7473D2971B39900242EEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACD7473F2971B39900242EEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ACD747412971B39900242EEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		ACD747462971B39A00242EEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACD747492971B39A00242EEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACD7474B2971B39A00242EEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACD7475129727A5C00242EEE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		ACD7475329727E2C00242EEE /* EndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
+		ACD747552972840E00242EEE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +54,7 @@
 		ACD7473B2971B39900242EEE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACD7473A2971B39900242EEE /* 柚希东东计算器.app */,
+				ACD7473A2971B39900242EEE /* 柚希动动计数器.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +65,9 @@
 				ACD7473D2971B39900242EEE /* AppDelegate.swift */,
 				ACD7473F2971B39900242EEE /* SceneDelegate.swift */,
 				ACD747412971B39900242EEE /* ViewController.swift */,
+				ACD7475129727A5C00242EEE /* HistoryViewController.swift */,
+				ACD7475329727E2C00242EEE /* EndViewController.swift */,
+				ACD747552972840E00242EEE /* DataModel.swift */,
 				ACD747432971B39900242EEE /* Main.storyboard */,
 				ACD747462971B39A00242EEE /* Assets.xcassets */,
 				ACD747482971B39A00242EEE /* LaunchScreen.storyboard */,
@@ -70,9 +79,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ACD747392971B39900242EEE /* 柚希东东计算器 */ = {
+		ACD747392971B39900242EEE /* 柚希动动计数器 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACD7474E2971B39A00242EEE /* Build configuration list for PBXNativeTarget "柚希东东计算器" */;
+			buildConfigurationList = ACD7474E2971B39A00242EEE /* Build configuration list for PBXNativeTarget "柚希动动计数器" */;
 			buildPhases = (
 				ACD747362971B39900242EEE /* Sources */,
 				ACD747372971B39900242EEE /* Frameworks */,
@@ -82,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = "柚希东东计算器";
+			name = "柚希动动计数器";
 			productName = "柚希东东计算器";
-			productReference = ACD7473A2971B39900242EEE /* 柚希东东计算器.app */;
+			productReference = ACD7473A2971B39900242EEE /* 柚希动动计数器.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -115,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ACD747392971B39900242EEE /* 柚希东东计算器 */,
+				ACD747392971B39900242EEE /* 柚希动动计数器 */,
 			);
 		};
 /* End PBXProject section */
@@ -139,8 +148,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD747422971B39900242EEE /* ViewController.swift in Sources */,
+				ACD7475429727E2C00242EEE /* EndViewController.swift in Sources */,
 				ACD7473E2971B39900242EEE /* AppDelegate.swift in Sources */,
 				ACD747402971B39900242EEE /* SceneDelegate.swift in Sources */,
+				ACD7475229727A5C00242EEE /* HistoryViewController.swift in Sources */,
+				ACD747562972840E00242EEE /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,8 +305,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,8 +332,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,7 +358,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACD7474E2971B39A00242EEE /* Build configuration list for PBXNativeTarget "柚希东东计算器" */ = {
+		ACD7474E2971B39A00242EEE /* Build configuration list for PBXNativeTarget "柚希动动计数器" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACD7474F2971B39A00242EEE /* Debug */,
