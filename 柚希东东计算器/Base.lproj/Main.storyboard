@@ -17,46 +17,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aB2-lG-8JR">
-                                <rect key="frame" x="0.0" y="494" width="393" height="358"/>
+                                <rect key="frame" x="0.0" y="474" width="393" height="378"/>
                                 <connections>
-                                    <segue destination="aUI-uN-g6j" kind="embed" id="fJ3-F1-Bge"/>
+                                    <segue destination="wyF-RG-8Qe" kind="embed" identifier="barChart" destinationCreationSelector="toChart:" id="g5j-az-asY"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eac-AX-o1L">
-                                <rect key="frame" x="170.66666666666666" y="298" width="52" height="96"/>
+                                <rect key="frame" x="170.66666666666666" y="238" width="52" height="96"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="80"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iG-IT-iSz">
-                                <rect key="frame" x="143" y="228" width="107" height="48"/>
+                                <rect key="frame" x="143" y="180" width="107" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6VB-yd-cd1">
-                                <rect key="frame" x="0.0" y="442" width="105" height="44"/>
-                                <buttonConfiguration key="configuration" style="plain" title="History">
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="aUI-uN-g6j" kind="show" id="qjy-Pj-Vl2"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Predicted daily count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVI-CG-fMo">
+                                <rect key="frame" x="104.33333333333333" y="353" width="184.66666666666669" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Tap: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ky7-MZ-YFe">
+                                <rect key="frame" x="16" y="445" width="361" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhO-jH-F3H">
+                                <rect key="frame" x="183.66666666666666" y="377" width="26" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fo4-ur-M43"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eac-AX-o1L" firstAttribute="centerY" secondItem="tsc-yx-EOE" secondAttribute="centerY" constant="-80" id="5Tr-1D-W3y"/>
+                            <constraint firstItem="eac-AX-o1L" firstAttribute="centerY" secondItem="tsc-yx-EOE" secondAttribute="centerY" constant="-140" id="5Tr-1D-W3y"/>
                             <constraint firstItem="aB2-lG-8JR" firstAttribute="leading" secondItem="fo4-ur-M43" secondAttribute="leading" id="6dx-Ir-flB"/>
-                            <constraint firstItem="eac-AX-o1L" firstAttribute="top" secondItem="7iG-IT-iSz" secondAttribute="bottom" constant="22" id="9ot-cw-p7L"/>
+                            <constraint firstItem="eac-AX-o1L" firstAttribute="top" secondItem="7iG-IT-iSz" secondAttribute="bottom" constant="10" id="9ot-cw-p7L"/>
                             <constraint firstItem="eac-AX-o1L" firstAttribute="centerX" secondItem="tsc-yx-EOE" secondAttribute="centerX" id="BMv-aM-kKi"/>
                             <constraint firstItem="7iG-IT-iSz" firstAttribute="centerX" secondItem="tsc-yx-EOE" secondAttribute="centerX" id="Gzh-V2-1J7"/>
-                            <constraint firstItem="aB2-lG-8JR" firstAttribute="top" secondItem="eac-AX-o1L" secondAttribute="bottom" constant="100" id="PjZ-sD-Zv1"/>
+                            <constraint firstItem="ky7-MZ-YFe" firstAttribute="leading" secondItem="fo4-ur-M43" secondAttribute="leading" constant="16" id="H3f-AA-pOO"/>
+                            <constraint firstItem="MhO-jH-F3H" firstAttribute="centerX" secondItem="tsc-yx-EOE" secondAttribute="centerX" id="JEO-qD-7h5"/>
+                            <constraint firstItem="aB2-lG-8JR" firstAttribute="top" secondItem="ky7-MZ-YFe" secondAttribute="bottom" constant="8" id="PNH-Y2-d7h"/>
+                            <constraint firstItem="aB2-lG-8JR" firstAttribute="top" secondItem="eac-AX-o1L" secondAttribute="bottom" constant="140" id="PjZ-sD-Zv1"/>
+                            <constraint firstItem="MhO-jH-F3H" firstAttribute="top" secondItem="ZVI-CG-fMo" secondAttribute="bottom" id="VK5-NF-4WN"/>
                             <constraint firstItem="fo4-ur-M43" firstAttribute="trailing" secondItem="aB2-lG-8JR" secondAttribute="trailing" id="WA4-jZ-viA"/>
-                            <constraint firstItem="aB2-lG-8JR" firstAttribute="top" secondItem="6VB-yd-cd1" secondAttribute="bottom" constant="8" symbolic="YES" id="e14-sA-RuZ"/>
+                            <constraint firstItem="ky7-MZ-YFe" firstAttribute="top" secondItem="MhO-jH-F3H" secondAttribute="bottom" constant="20" id="Z5L-Va-s8a"/>
+                            <constraint firstItem="fo4-ur-M43" firstAttribute="trailing" secondItem="ky7-MZ-YFe" secondAttribute="trailing" constant="16" id="aWH-Sm-7sQ"/>
                             <constraint firstAttribute="bottom" secondItem="aB2-lG-8JR" secondAttribute="bottom" id="fd4-bj-bH4"/>
-                            <constraint firstItem="6VB-yd-cd1" firstAttribute="leading" secondItem="fo4-ur-M43" secondAttribute="leading" id="x8J-dC-q3k"/>
+                            <constraint firstItem="ZVI-CG-fMo" firstAttribute="centerX" secondItem="tsc-yx-EOE" secondAttribute="centerX" id="zbI-U5-xtF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aI2-ie-Bbp"/>
@@ -64,12 +78,22 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Result"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="labelResult" destination="eac-AX-o1L" id="6dd-Ct-QSk"/>
+                        <outlet property="labelPredictedCount" destination="MhO-jH-F3H" id="TUR-pR-TFQ"/>
+                        <outlet property="labelResult" destination="eac-AX-o1L" id="pXj-gF-5WJ"/>
+                        <outlet property="labelTap" destination="ky7-MZ-YFe" id="fmT-fs-3fj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dET-nH-y2q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2073" y="-416"/>
+        </scene>
+        <!--Bar Chart Hosting View Controller-->
+        <scene sceneID="21L-71-kLY">
+            <objects>
+                <hostingController id="wyF-RG-8Qe" customClass="BarChartHostingViewController" customModule="柚希动动计数器" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0gi-eO-8xP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2880" y="-416"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -279,15 +303,16 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="tableview" destination="ypk-tf-Ac7" id="phy-Rx-bYa"/>
+                        <segue destination="R7r-ua-R3d" kind="show" identifier="goToEnd" id="Qxy-Ru-Otl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxK-Z8-Pxy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073" y="390"/>
+            <point key="canvasLocation" x="1839" y="346"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4FA-Kr-VAN"/>
+        <segue reference="Qxy-Ru-Otl"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

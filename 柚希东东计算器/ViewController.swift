@@ -12,10 +12,10 @@ class ViewController: UIViewController {
         case idle
         case counting
     }
-//    private static let period: TimeInterval = 60 * 60
-//    private static let countIgnoreDuration: TimeInterval = 5 * 60
-    private static let period: TimeInterval = 10
-    private static let countIgnoreDuration: TimeInterval = 2
+    private static let period: TimeInterval = 60 * 60
+    private static let countIgnoreDuration: TimeInterval = 5 * 60
+//    private static let period: TimeInterval = 10
+//    private static let countIgnoreDuration: TimeInterval = 2
 
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var labelTapped: UILabel!
@@ -50,7 +50,6 @@ class ViewController: UIViewController {
         haptic.prepare()
         hapticHeavy.prepare()
         update()
-        fix_old_data()
     }
     private func startCounting() {
         UIApplication.shared.isIdleTimerDisabled = true
@@ -129,36 +128,9 @@ class ViewController: UIViewController {
             GlobalSettings.data = data
         }
     }
-    private func fix_old_data() {
-        let record: [String]? = (UserDefaults.standard.value(forKey: "com.my.record") as? [String])
-        guard let record, record.count > 0 else {
-            return
-        }
-        let formate = DateFormatter()
-        formate.setLocalizedDateFormatFromTemplate("yyyy-MM-dd, HH:mm")
-        formate.timeZone = TimeZone.current
-        formate.locale = Locale.current
-        for i in record {
-            let b = i.components(separatedBy: " - ")
-            let date: Date? = formate.date(from: b[0])
-            let count: Int? = Int(b[1])
-            if date == nil && count == nil {
-                continue
-            }
-            let data = DataModel()
-            if let date {
-                data.dateStart = date
-            }
-            if let count {
-                data.count = count
-            }
-            data.save()
-        }
-        UserDefaults.standard.setValue(nil, forKey: "com.my.record")
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToEnd", let vc: EndViewController = segue.destination as? EndViewController {
-            vc.result = dataModel?.count ?? 0
+            vc.data = dataModel
         }
     }
 }

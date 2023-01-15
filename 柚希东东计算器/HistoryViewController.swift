@@ -28,7 +28,6 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
         let dataModel = data[indexPath.row]
@@ -39,6 +38,13 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentConfiguration = config
         return cell
     }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dataModel = data[indexPath.row]
+        performSegue(withIdentifier: "goToEnd", sender: dataModel)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEnd", let vc: EndViewController = segue.destination as? EndViewController, let data: DataModel = sender as? DataModel {
+            vc.data = data
+        }
+    }
 }
