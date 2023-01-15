@@ -53,6 +53,17 @@ class HistoryViewController: UIViewController {
         }
         data = section
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEnd", let vc: EndViewController = segue.destination as? EndViewController, let data: DataModel = sender as? DataModel {
+            vc.data = data
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let indexPathForSelectedRow = tableview.indexPathForSelectedRow {
+            tableview.deselectRow(at: indexPathForSelectedRow, animated: true)
+        }
+    }
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -99,24 +110,29 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             let section = data[indexPath.section]
             let sectionNeedToBeDelete: Bool = section.count == 1
             let dataToDelete = section[indexPath.row]
-            var allData = GlobalSettings.data
-            allData.removeAll {
-                $0.dateStart == dataToDelete.dateStart
-            }
-            GlobalSettings.data = allData
-            tableView.beginUpdates()
-            if sectionNeedToBeDelete {
-                tableView.deleteSections([indexPath.section], with: .automatic)
-            } else {
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            }
-            reloadData()
-            tableView.endUpdates()
-        }
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToEnd", let vc: EndViewController = segue.destination as? EndViewController, let data: DataModel = sender as? DataModel {
-            vc.data = data
+            let formate = DateFormatter()
+            formate.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm")
+            formate.timeZone = TimeZone.current
+            formate.locale = Locale.current
+
+            let alc = UIAlertController(title: "Are you sure?", message: "Record in \(formate.string(from: dataToDelete.dateStart)) will be deleted", preferredStyle: .actionSheet)
+            alc.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alc.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+                var allData = GlobalSettings.data
+                allData.removeAll {
+                    $0.dateStart == dataToDelete.dateStart
+                }
+                GlobalSettings.data = allData
+                tableView.beginUpdates()
+                if sectionNeedToBeDelete {
+                    tableView.deleteSections([indexPath.section], with: .automatic)
+                } else {
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+                self?.reloadData()
+                tableView.endUpdates()
+            })
+            present(alc, animated: true)
         }
     }
 }
