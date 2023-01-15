@@ -35,8 +35,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Predicted daily count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVI-CG-fMo">
-                                <rect key="frame" x="104.33333333333333" y="353" width="184.66666666666669" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="124.00000000000001" y="359" width="145.33333333333337" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -79,6 +79,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="labelPredictedCount" destination="MhO-jH-F3H" id="TUR-pR-TFQ"/>
+                        <outlet property="labelPredictedCountTitle" destination="ZVI-CG-fMo" id="HyI-vG-Ooj"/>
                         <outlet property="labelResult" destination="eac-AX-o1L" id="pXj-gF-5WJ"/>
                         <outlet property="labelTap" destination="ky7-MZ-YFe" id="fmT-fs-3fj"/>
                     </connections>
@@ -253,11 +254,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ypk-tf-Ac7">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ypk-tf-Ac7">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="resultCell" textLabel="BfK-P2-8jc" detailTextLabel="nfz-tu-ZUf" style="IBUITableViewCellStyleValue1" id="5im-WC-Rh0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" textLabel="BfK-P2-8jc" detailTextLabel="nfz-tu-ZUf" style="IBUITableViewCellStyleValue1" id="5im-WC-Rh0">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5im-WC-Rh0" id="Cdf-VZ-8Rh">

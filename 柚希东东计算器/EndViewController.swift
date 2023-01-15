@@ -13,6 +13,7 @@ class EndViewController: UIViewController {
     @IBOutlet weak var labelResult: UILabel!
     @IBOutlet weak var labelTap: UILabel!
     @IBOutlet weak var labelPredictedCount: UILabel!
+    @IBOutlet weak var labelPredictedCountTitle: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         labelResult.text = "\(data?.count ?? 0)"
@@ -27,6 +28,11 @@ class EndViewController: UIViewController {
             })
             let pedicted: Int = Int((totalCount / Float(recordsInToday.count)) * 12.0)
             labelPredictedCount.text = "\(pedicted)"
+            let formate = DateFormatter()
+            formate.setLocalizedDateFormatFromTemplate("yyyy-MM-dd")
+            formate.timeZone = TimeZone.current
+            formate.locale = Locale.current
+            labelPredictedCountTitle.text = "Predicted Daily Count (\(formate.string(from: dateToday)))"
         }
     }
     @IBSegueAction func toChart(_ coder: NSCoder) -> UIViewController? {

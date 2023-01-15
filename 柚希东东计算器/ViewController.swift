@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     }
     private static let period: TimeInterval = 60 * 60
     private static let countIgnoreDuration: TimeInterval = 5 * 60
-//    private static let period: TimeInterval = 10
-//    private static let countIgnoreDuration: TimeInterval = 2
+//    private static let period: TimeInterval = 4
+//    private static let countIgnoreDuration: TimeInterval = 1
 
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var labelTapped: UILabel!
