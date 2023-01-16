@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     }
     private static let period: TimeInterval = 60 * 60
     private static let countIgnoreDuration: TimeInterval = 5 * 60
-//    private static let period: TimeInterval = 4
+//    private static let period: TimeInterval = 10
 //    private static let countIgnoreDuration: TimeInterval = 1
 
     @IBOutlet weak var labelTime: UILabel!
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
             if countDown > 0 {
                 let min: Int = countDown / 60
                 let sec: Int = countDown % 60
-                labelTime.text = "\(min) : \(sec)"
+                labelTime.text = "\(String(format: "%02d", min)) : \(String(format: "%02d", sec))"
             } else {
                 state = .idle
             }
