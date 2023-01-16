@@ -27,21 +27,15 @@ struct Dot: View {
             .font(.system(size: 8))
             .frame(width: 20, height: 20, alignment: .center)
             .foregroundColor(.blue)
-            .background(
-                Circle()
-                .fill(.white)
-                .shadow(radius: 2)
-
-            )
-//        Circle()
-//            .fill(.white)
-//            .frame(width: 10)
-//            .shadow(radius: 2)
+            .background {
+                Circle().fill(.white).shadow(radius: 2)
+            }
     }
 }
 
 struct LineChart: View {
-    @State var dayBefore: Int = 7
+    @State private var appeared = false
+    @State private var dayBefore: Int = 7
     var strideCount: Int {
         var ret: Int = 3
         if dayBefore < 15 {
@@ -51,17 +45,12 @@ struct LineChart: View {
         }
         return ret
     }
-    let curGradient = LinearGradient(
-        gradient: Gradient (
-            colors: [
-                Color(.blue).opacity(0.1),
-                Color(.blue).opacity(0.0)
-            ]
-        ),
+    private let curGradient = LinearGradient(
+        gradient: Gradient(colors: [Color(.blue).opacity(0.1), Color(.blue).opacity(0.0)]),
         startPoint: .top,
         endPoint: .bottom
     )
-    func generate(_ dayBefore: Int) -> [LineMarkModel] {
+    private func generate(_ dayBefore: Int) -> [LineMarkModel] {
         var ret: [LineMarkModel] = []
         for i in 0..<dayBefore {
             ret += LineMarkModel(dayBefore: i)
@@ -70,7 +59,7 @@ struct LineChart: View {
     }
     var body: some View {
         VStack {
-            Picker("select period", selection: $dayBefore) {
+            Picker("select period", selection: $dayBefore.animation(.easeInOut)) {
                 Text("7d").tag(7)
                 Text("15d").tag(15)
                 Text("30d").tag(30)
@@ -79,27 +68,31 @@ struct LineChart: View {
             Chart(generate(dayBefore)) { d in
                 AreaMark(
                     x: .value("date", d.date),
-                    y: .value("count", d.value)
+                    y: .value("count", appeared ? d.value : 0)
                 )
                 .interpolationMethod(.catmullRom)
                 .foregroundStyle(curGradient)
                 
                 LineMark(
                     x: .value("date", d.date),
-                    y: .value("count", d.value)
+                    y: .value("count", appeared ? d.value : 0)
                 )
                 .interpolationMethod(.catmullRom)
                 .symbol {
-                    if strideCount < 3 {
+                    if appeared && strideCount < 3 {
                         Dot(value: d.value)
                     }
                 }
             }.chartXAxis {
                 AxisMarks(position: .bottom, values: .stride(by: .day, count: strideCount)) { value in
-                    AxisValueLabel() {
+                    AxisValueLabel {
                         Text(value.as(Date.self)?.toMMDD ?? "")
                     }
                 }
+            }
+        }.onAppear {
+            withAnimation(Animation.easeInOut.delay(0.7)) {
+                appeared = true
             }
         }
     }
