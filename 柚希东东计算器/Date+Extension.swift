@@ -39,3 +39,12 @@ extension Date {
         formater3.string(from: self)
     }
 }
+
+extension DateComponents {
+    static func dateComponentFor(hour: Int, min: Int) -> DateComponents {
+        var retV: DateComponents = DateComponents()
+        retV.hour = hour
+        retV.minute = min
+        return retV
+    }
+}

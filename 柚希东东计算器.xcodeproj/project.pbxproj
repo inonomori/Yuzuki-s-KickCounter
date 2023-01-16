@@ -21,6 +21,7 @@
 		ACD7546B2974EB8000242EEE /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7546A2974EB8000242EEE /* Date+Extension.swift */; };
 		ACD76E862975018400242EEE /* DailyLineMarkChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD76E852975018400242EEE /* DailyLineMarkChartViewController.swift */; };
 		ACD76E882975024E00242EEE /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD76E872975024E00242EEE /* LineChart.swift */; };
+		ACD7AB2A29755CD400242EEE /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7AB2929755CD400242EEE /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		ACD7546A2974EB8000242EEE /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ACD76E852975018400242EEE /* DailyLineMarkChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLineMarkChartViewController.swift; sourceTree = "<group>"; };
 		ACD76E872975024E00242EEE /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		ACD7AB2929755CD400242EEE /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				ACD7473D2971B39900242EEE /* AppDelegate.swift */,
 				ACD7473F2971B39900242EEE /* SceneDelegate.swift */,
 				ACD747412971B39900242EEE /* ViewController.swift */,
+				ACD7AB2929755CD400242EEE /* LocalNotificationManager.swift */,
 				ACD7475129727A5C00242EEE /* HistoryViewController.swift */,
 				ACD7475329727E2C00242EEE /* EndViewController.swift */,
 				ACD747552972840E00242EEE /* DataModel.swift */,
@@ -168,6 +171,7 @@
 				ACD7473E2971B39900242EEE /* AppDelegate.swift in Sources */,
 				ACD76E882975024E00242EEE /* LineChart.swift in Sources */,
 				ACD754692974E88200242EEE /* CollectionValue+Extension.swift in Sources */,
+				ACD7AB2A29755CD400242EEE /* LocalNotificationManager.swift in Sources */,
 				ACD747402971B39900242EEE /* SceneDelegate.swift in Sources */,
 				ACD7475229727A5C00242EEE /* HistoryViewController.swift in Sources */,
 				ACD74758297434E600242EEE /* BarChart.swift in Sources */,
