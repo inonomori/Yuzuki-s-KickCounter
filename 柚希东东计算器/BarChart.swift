@@ -37,6 +37,11 @@ struct BarChart: View {
                     x: .value("Time", $0.xName),
                     y: .value("Tap", $0.value)
                 )
+            }.background {
+                Text("No Data")
+                    .font(.title)
+                    .foregroundColor(Color(.systemGray))
+                    .opacity(barMarkData.first{ $0.value > 0 } == nil ? 1.0 : 0.0)
             }
         }
         .padding()

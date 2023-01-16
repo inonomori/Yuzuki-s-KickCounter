@@ -20,6 +20,12 @@ fileprivate var formater2: DateFormatter = {
     formate.timeZone = TimeZone.current
     return formate
 }()
+fileprivate var formater3: DateFormatter = {
+    let formate = DateFormatter()
+    formate.dateFormat = "HH:mm"
+    formate.timeZone = TimeZone.current
+    return formate
+}()
 
 
 extension Date {
@@ -28,5 +34,8 @@ extension Date {
     }
     var toMMDD: String {
         formater2.string(from: self)
+    }
+    var toHHMM: String {
+        formater3.string(from: self)
     }
 }

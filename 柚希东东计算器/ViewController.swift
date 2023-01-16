@@ -127,11 +127,25 @@ class ViewController: UIViewController {
         }
     }
     private func fixData() {
+        // remove no data section
+        var newData:[String:[DataModel]] = GlobalSettings.data
+        let allKeys = newData.keys
+        var needReset: Bool = false
+        for k in allKeys {
+            if let v = newData[k], v.count == 0 {
+                newData[k] = nil
+                needReset = true
+            }
+        }
+        if needReset {
+            GlobalSettings.data = newData
+        }
+        //migrate old data to new data if necessary
         let allData: [DataModel] = GlobalSettings.oldData
         guard allData.count > 0 else {
             return
         }
-        var newData:[String:[DataModel]] = GlobalSettings.data
+        newData = GlobalSettings.data
         for data in allData {
             var c = newData[data.dateStart.toYYYYMMDD] ?? []
             c += data

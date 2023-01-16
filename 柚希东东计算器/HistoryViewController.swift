@@ -9,13 +9,6 @@ import UIKit
 
 class HistoryViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
-    private let format: DateFormatter = {
-        let formate = DateFormatter()
-        formate.setLocalizedDateFormatFromTemplate("HH:mm")
-        formate.timeZone = TimeZone.current
-        formate.locale = Locale.current
-        return formate
-    }()
     fileprivate var data: [[DataModel]]?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +19,9 @@ class HistoryViewController: UIViewController {
         let allData: [String:[DataModel]] = GlobalSettings.data
         let keys = allData.keys.sorted(by: >)
         for key in keys {
-            guard let c: [DataModel] = allData[key], c.count > 0 else {
+            guard let c: [DataModel] = allData[key]?.sorted(by: {
+                $0.dateStart > $1.dateStart
+            }), c.count > 0 else {
                 continue
             }
             section += c
@@ -60,8 +55,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
         let dataModel = data[indexPath.section][indexPath.row]
         var config = cell.defaultContentConfiguration()
-        let dateString = format.string(from: dataModel.dateStart)
-        config.text = "\(dateString)"
+        config.text = "\(dataModel.dateStart.toHHMM)"
         config.secondaryText = "\(dataModel.count)"
         cell.contentConfiguration = config
         return cell
