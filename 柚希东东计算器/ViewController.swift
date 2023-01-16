@@ -116,8 +116,7 @@ class ViewController: UIViewController {
             dateLastRecord = Date()
             dataModel?.increaseCount()
             hapticHeavy.impactOccurred()
-        }
-        else {
+        } else {
             haptic.impactOccurred()
         }
     }
