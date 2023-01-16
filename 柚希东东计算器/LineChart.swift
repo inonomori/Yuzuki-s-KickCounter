@@ -63,7 +63,7 @@ struct LineChart: View {
                 Text("7d").tag(7)
                 Text("15d").tag(15)
                 Text("30d").tag(30)
-            }.pickerStyle(.segmented).padding()
+            }.pickerStyle(.segmented)
             Spacer(minLength: 40)
             Chart(generate(dayBefore)) { d in
                 AreaMark(
@@ -90,7 +90,9 @@ struct LineChart: View {
                     }
                 }
             }
-        }.onAppear {
+        }
+        .padding()
+        .onAppear {
             withAnimation(Animation.easeInOut.delay(0.7)) {
                 appeared = true
             }

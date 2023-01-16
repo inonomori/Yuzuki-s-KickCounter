@@ -15,7 +15,9 @@ struct BarMarkModel: Identifiable {
 }
 
 struct BarChart: View {
-    init(data: DataModel) {
+    @State private var isOnAppeared: Bool = false
+    var data: DataModel
+    var barMarkData: [BarMarkModel] {
         let startTime = data.dateStart.timeIntervalSince1970
         var dataCount: [BarMarkModel] = []
         for i in 0..<12 {
@@ -25,15 +27,24 @@ struct BarChart: View {
             let index = Int((i - startTime) / (5.0 * 60.0))
             dataCount[index].value += 1
         }
-        self.data = dataCount
+        return dataCount
     }
-    var data: [BarMarkModel]
     var body: some View {
-        Chart(data) {
-            BarMark(
-                x: .value("Time", $0.xName),
-                y: .value("Tap", $0.value)
-            )
+        VStack(alignment: .trailing) {
+            Text("Total Tap: \(data.rawRecords.count)")
+            Chart(barMarkData) {
+                BarMark(
+                    x: .value("Time", $0.xName),
+                    y: .value("Tap", $0.value)
+                )
+            }
+        }
+        .padding()
+        .opacity(isOnAppeared ? 1.0 : 0.0)
+        .onAppear {
+            withAnimation(Animation.easeInOut.delay(0.5)) {
+                isOnAppeared = true
+            }
         }
     }
 }

@@ -11,13 +11,11 @@ import SwiftUI
 class EndViewController: UIViewController {
     var data: DataModel?
     @IBOutlet weak var labelResult: UILabel!
-    @IBOutlet weak var labelTap: UILabel!
     @IBOutlet weak var labelPredictedCount: UILabel!
     @IBOutlet weak var labelPredictedCountTitle: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         labelResult.text = "\(data?.count ?? 0)"
-        labelTap.text = "Total Tap: \(data?.rawRecords.count ?? 0)"
         if let dateToday = data?.dateStart {
             let recordsInToday: [DataModel] = GlobalSettings.data[dateToday.toYYYYMMDD] ?? []
             labelPredictedCount.text = "\(recordsInToday.predictedDailyCount)"
