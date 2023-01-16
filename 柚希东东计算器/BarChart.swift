@@ -14,8 +14,15 @@ struct BarMarkModel: Identifiable {
     var id = UUID()
 }
 
+struct BarChartContainer: View {
+    @State var data: [BarMarkModel]
+    var body: some View {
+        BarChart(data: $data)
+    }
+}
+
 struct BarChart: View {
-    var data: [BarMarkModel]
+    @Binding var data: [BarMarkModel]
     var body: some View {
         Chart {
             ForEach(data) { datum in
@@ -28,18 +35,18 @@ struct BarChart: View {
     }
 }
 
-class BarChartHostingViewController: UIHostingController<BarChart> {
+class BarChartHostingViewController: UIHostingController<BarChartContainer> {
     init?(coder aDecoder: NSCoder, data: DataModel) {
         let startTime = data.dateStart.timeIntervalSince1970
         var dataCount: [BarMarkModel] = []
         for i in 0..<12 {
-            dataCount.append(BarMarkModel(xName: "\((i + 1) * 5)", value: 0))
+            dataCount += BarMarkModel(xName: "\((i + 1) * 5)", value: 0)
         }
         for i in data.rawRecords {
             let index = Int((i - startTime) / (5.0 * 60.0))
             dataCount[index].value += 1
         }
-        super.init(coder: aDecoder, rootView: BarChart(data: dataCount))
+        super.init(coder: aDecoder, rootView: BarChartContainer(data: dataCount))
     }
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

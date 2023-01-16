@@ -13,14 +13,14 @@ class DataModel: Codable {
     var tap: Int { rawRecords.count }
     var rawRecords: [TimeInterval] = []
     func addRecord() {
-        rawRecords.append(Date().timeIntervalSince1970)
+        rawRecords += Date().timeIntervalSince1970
     }
     func increaseCount() {
         count += 1
     }
     func save() {
         var data = GlobalSettings.data
-        data.append(self)
+        data += self
         GlobalSettings.data = data
     }
 }

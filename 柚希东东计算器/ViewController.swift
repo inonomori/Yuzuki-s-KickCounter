@@ -124,7 +124,7 @@ class ViewController: UIViewController {
     private func record() {
         if let dataModel {
             var data = GlobalSettings.data
-            data.append(dataModel)
+            data += dataModel
             GlobalSettings.data = data
         }
     }

@@ -17,6 +17,7 @@
 		ACD7475429727E2C00242EEE /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7475329727E2C00242EEE /* EndViewController.swift */; };
 		ACD747562972840E00242EEE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD747552972840E00242EEE /* DataModel.swift */; };
 		ACD74758297434E600242EEE /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD74757297434E600242EEE /* BarChart.swift */; };
+		ACD754692974E88200242EEE /* CollectionValue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD754682974E88200242EEE /* CollectionValue+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		ACD7475329727E2C00242EEE /* EndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		ACD747552972840E00242EEE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		ACD74757297434E600242EEE /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		ACD754682974E88200242EEE /* CollectionValue+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionValue+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				ACD7475329727E2C00242EEE /* EndViewController.swift */,
 				ACD747552972840E00242EEE /* DataModel.swift */,
 				ACD74757297434E600242EEE /* BarChart.swift */,
+				ACD754682974E88200242EEE /* CollectionValue+Extension.swift */,
 				ACD747432971B39900242EEE /* Main.storyboard */,
 				ACD747462971B39A00242EEE /* Assets.xcassets */,
 				ACD747482971B39A00242EEE /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 				ACD747422971B39900242EEE /* ViewController.swift in Sources */,
 				ACD7475429727E2C00242EEE /* EndViewController.swift in Sources */,
 				ACD7473E2971B39900242EEE /* AppDelegate.swift in Sources */,
+				ACD754692974E88200242EEE /* CollectionValue+Extension.swift in Sources */,
 				ACD747402971B39900242EEE /* SceneDelegate.swift in Sources */,
 				ACD7475229727A5C00242EEE /* HistoryViewController.swift in Sources */,
 				ACD74758297434E600242EEE /* BarChart.swift in Sources */,

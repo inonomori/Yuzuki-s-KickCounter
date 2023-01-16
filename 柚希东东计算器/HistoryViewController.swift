@@ -39,17 +39,17 @@ class HistoryViewController: UIViewController {
                 lastDate = d.dateStart
                 continue
             } else if Calendar.current.isDate(d.dateStart, inSameDayAs: lastDate!) {
-                lastSec?.append(d)
+                lastSec? += d
             } else {
                 if let lastSec, lastSec.count > 0 {
-                    section.append(lastSec)
+                    section += lastSec
                 }
                 lastSec = [d]
                 lastDate = d.dateStart
             }
         }
         if let lastSec, lastSec.count > 0 {
-            section.append(lastSec)
+            section += lastSec
         }
         data = section
     }
