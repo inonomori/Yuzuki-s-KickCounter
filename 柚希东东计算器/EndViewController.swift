@@ -19,10 +19,7 @@ class EndViewController: UIViewController {
         labelResult.text = "\(data?.count ?? 0)"
         labelTap.text = "Total Tap: \(data?.rawRecords.count ?? 0)"
         if let dateToday = data?.dateStart {
-            let datas: [DataModel] = GlobalSettings.data
-            let recordsInToday: [DataModel] = datas.filter {
-                Calendar.current.isDate($0.dateStart, inSameDayAs: dateToday)
-            }
+            let recordsInToday: [DataModel] = GlobalSettings.data[dateToday.toYYYYMMDD] ?? []
             let totalCount: Float = Float(recordsInToday.reduce(0) { partialResult, dataModel in
                 return partialResult + dataModel.count
             })

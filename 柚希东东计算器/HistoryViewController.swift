@@ -16,13 +16,6 @@ class HistoryViewController: UIViewController {
         formate.locale = Locale.current
         return formate
     }()
-    private let format2: DateFormatter = {
-        let formate = DateFormatter()
-        formate.setLocalizedDateFormatFromTemplate("yyyy-MM-dd")
-        formate.timeZone = TimeZone.current
-        formate.locale = Locale.current
-        return formate
-    }()
     fileprivate var data: [[DataModel]]?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,26 +23,13 @@ class HistoryViewController: UIViewController {
     }
     private func reloadData() {
         var section: [[DataModel]] = []
-        let allData: [DataModel] = GlobalSettings.data.reversed()
-        var lastSec: [DataModel]?
-        var lastDate: Date?
-        for d in allData {
-            if lastDate == nil {
-                lastSec = [d]
-                lastDate = d.dateStart
+        let allData: [String:[DataModel]] = GlobalSettings.data
+        let keys = allData.keys.sorted(by: >)
+        for key in keys {
+            guard let c: [DataModel] = allData[key], c.count > 0 else {
                 continue
-            } else if Calendar.current.isDate(d.dateStart, inSameDayAs: lastDate!) {
-                lastSec? += d
-            } else {
-                if let lastSec, lastSec.count > 0 {
-                    section += lastSec
-                }
-                lastSec = [d]
-                lastDate = d.dateStart
             }
-        }
-        if let lastSec, lastSec.count > 0 {
-            section += lastSec
+            section += c
         }
         data = section
     }
@@ -97,7 +77,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         guard let data, let data = data[section].first else {
             return nil
         }
-        return format2.string(from: data.dateStart)
+        return data.dateStart.toYYYYMMDD
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         true
@@ -108,7 +88,6 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         }
         if (editingStyle == .delete) {
             let section = data[indexPath.section]
-            let sectionNeedToBeDelete: Bool = section.count == 1
             let dataToDelete = section[indexPath.row]
             let formate = DateFormatter()
             formate.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm")
@@ -118,13 +97,10 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             let alc = UIAlertController(title: "Are you sure?", message: "Record in \(formate.string(from: dataToDelete.dateStart)) will be deleted", preferredStyle: .actionSheet)
             alc.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             alc.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
-                var allData = GlobalSettings.data
-                allData.removeAll {
-                    $0.dateStart == dataToDelete.dateStart
-                }
-                GlobalSettings.data = allData
+                dataToDelete.delete()
+                let deleteSection: Bool = GlobalSettings.data[dataToDelete.dateStart.toYYYYMMDD] == nil
                 tableView.beginUpdates()
-                if sectionNeedToBeDelete {
+                if deleteSection {
                     tableView.deleteSections([indexPath.section], with: .automatic)
                 } else {
                     tableView.deleteRows(at: [indexPath], with: .automatic)

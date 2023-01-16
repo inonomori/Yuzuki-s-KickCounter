@@ -8,6 +8,7 @@
 import Foundation
 
 class DataModel: Codable {
+    var id: UUID? = UUID()
     var dateStart: Date = Date()
     var count: Int = 0
     var tap: Int { rawRecords.count }
@@ -20,8 +21,29 @@ class DataModel: Codable {
     }
     func save() {
         var data = GlobalSettings.data
-        data += self
+        var collection: [DataModel] = data[dateStart.toYYYYMMDD] ?? []
+        collection += self
+        data[dateStart.toYYYYMMDD] = collection
         GlobalSettings.data = data
+    }
+    func delete() {
+        var gdata: [String:[DataModel]] = GlobalSettings.data
+        var allData: [DataModel]? = gdata[dateStart.toYYYYMMDD]
+        guard (allData?.count ?? 0) > 0 else {
+            return
+        }
+        allData?.removeAll { obj in
+            if let idToBeDelete = id {
+                return obj.id == idToBeDelete
+            }
+            // compatible for old data
+            return obj.dateStart == dateStart
+        }
+        if (allData?.count ?? 0) == 0 {
+            allData = nil
+        }
+        gdata[dateStart.toYYYYMMDD] = allData
+        GlobalSettings.data = gdata
     }
 }
 
@@ -51,5 +73,6 @@ class DataModel: Codable {
 
 
 enum GlobalSettings {
-    @UserDefault("com.my.datas", defaultValue: []) static var data: [DataModel]
+    @UserDefault("com.my.datas_new", defaultValue:[:]) static var data: [String:[DataModel]]
+    @UserDefault("com.my.datas", defaultValue:[]) static var oldData: [DataModel]
 }

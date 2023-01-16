@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     }
     private static let period: TimeInterval = 60 * 60
     private static let countIgnoreDuration: TimeInterval = 5 * 60
-//    private static let period: TimeInterval = 10
+//    private static let period: TimeInterval = 4
 //    private static let countIgnoreDuration: TimeInterval = 1
 
     @IBOutlet weak var labelTime: UILabel!
@@ -47,6 +47,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fixData()
         haptic.prepare()
         hapticHeavy.prepare()
         update()
@@ -120,17 +121,24 @@ class ViewController: UIViewController {
             haptic.impactOccurred()
         }
     }
-    private func record() {
-        if let dataModel {
-            var data = GlobalSettings.data
-            data += dataModel
-            GlobalSettings.data = data
-        }
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToEnd", let vc: EndViewController = segue.destination as? EndViewController {
             vc.data = dataModel
         }
+    }
+    private func fixData() {
+        let allData: [DataModel] = GlobalSettings.oldData
+        guard allData.count > 0 else {
+            return
+        }
+        var newData:[String:[DataModel]] = GlobalSettings.data
+        for data in allData {
+            var c = newData[data.dateStart.toYYYYMMDD] ?? []
+            c += data
+            newData[data.dateStart.toYYYYMMDD] = c
+        }
+        GlobalSettings.data = newData
+        GlobalSettings.oldData = []
     }
 }
 
