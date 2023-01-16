@@ -61,11 +61,11 @@ class ViewController: UIViewController {
         labelStart.text = "Tap"
         UIView.animate(withDuration: 0.2) {
             self.viewStart.backgroundColor = .systemGreen
+            self.buttonStop.alpha = 1.0
         }
         dataModel = DataModel()
         startTimer()
         update()
-        buttonStop.isHidden = false
     }
     private func endCounting(_ needSave: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
@@ -74,11 +74,11 @@ class ViewController: UIViewController {
         labelTime.text = ""
         UIView.animate(withDuration: 0.2) {
             self.viewStart.backgroundColor = .systemTeal
+            self.buttonStop.alpha = 0
         }
         dateLastRecord = nil
         timer?.invalidate()
         timer = nil
-        buttonStop.isHidden = true
         if needSave {
             dataModel?.save()
             alc?.dismiss(animated: true)
@@ -114,6 +114,19 @@ class ViewController: UIViewController {
         RunLoop.main.add(timer!, forMode: .common)
     }
     private func update() {
+        updateUI()
+        if state == .counting, let dataModel {
+            let delta: TimeInterval = Date().timeIntervalSince1970 - dataModel.dateStart.timeIntervalSince1970
+            let countDown: Int = Int(Self.period - delta)
+            if countDown <= 0 {
+                state = .idle(true)
+            }
+        }
+    }
+    private func updateUI() {
+        labelTapped.text = "\(dataModel?.tap ?? 0)"
+        labelCount.text = "\(dataModel?.count ?? 0)"
+        labelTime.text = ""
         if state == .counting, let dataModel {
             let delta: TimeInterval = Date().timeIntervalSince1970 - dataModel.dateStart.timeIntervalSince1970
             let countDown: Int = Int(Self.period - delta)
@@ -121,16 +134,8 @@ class ViewController: UIViewController {
                 let min: Int = countDown / 60
                 let sec: Int = countDown % 60
                 labelTime.text = "\(String(format: "%02d", min)) : \(String(format: "%02d", sec))"
-            } else {
-                state = .idle(true)
             }
-        } else {
-            labelTime.text = ""
         }
-    }
-    private func updateUI() {
-        labelTapped.text = "\(dataModel?.tap ?? 0)"
-        labelCount.text = "\(dataModel?.count ?? 0)"
     }
     private func increaseCountIfNeeded() {
         if dateLastRecord == nil || Date().timeIntervalSince1970 - dateLastRecord!.timeIntervalSince1970 > Self.countIgnoreDuration {
