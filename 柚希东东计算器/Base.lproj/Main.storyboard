@@ -172,6 +172,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNF-h7-G4L">
+                                <rect key="frame" x="158.66666666666666" y="763" width="76" height="35"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Stop">
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="stopTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6af-8Z-7im"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -185,9 +194,11 @@
                             <constraint firstItem="AKM-dA-Jyx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G3u-jv-zab"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1ma-dc-t56" secondAttribute="bottom" constant="200" id="InD-M2-fS4"/>
                             <constraint firstItem="L7Y-28-sLt" firstAttribute="top" secondItem="8Qe-OD-bN8" secondAttribute="bottom" constant="20" id="JAg-uh-MGz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PNF-h7-G4L" secondAttribute="bottom" constant="20" id="JTX-cq-R5V"/>
                             <constraint firstItem="Eu3-ac-KTh" firstAttribute="top" secondItem="L7Y-28-sLt" secondAttribute="bottom" id="LpX-E6-1up"/>
                             <constraint firstItem="1ma-dc-t56" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XfW-Hd-lrV"/>
                             <constraint firstItem="Eu3-ac-KTh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZdG-vp-swC"/>
+                            <constraint firstItem="PNF-h7-G4L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bWc-Ky-nNU"/>
                             <constraint firstItem="zqu-aW-hUV" firstAttribute="centerY" secondItem="Eu3-ac-KTh" secondAttribute="centerY" constant="10" id="eOX-VQ-Vuc"/>
                             <constraint firstItem="1ma-dc-t56" firstAttribute="top" secondItem="Eu3-ac-KTh" secondAttribute="bottom" id="nBS-kw-XIN"/>
                             <constraint firstItem="L7Y-28-sLt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="170" id="seB-wi-lVw"/>
@@ -213,6 +224,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="buttonHistory" destination="pkC-kS-z0A" id="H4P-kA-cuq"/>
+                        <outlet property="buttonStop" destination="PNF-h7-G4L" id="EvB-Pb-FYa"/>
                         <outlet property="labelCount" destination="zqu-aW-hUV" id="A47-vm-Sia"/>
                         <outlet property="labelStart" destination="Ugd-Y1-6vN" id="x5u-aM-8iR"/>
                         <outlet property="labelTapped" destination="L7Y-28-sLt" id="Mhn-ir-cYb"/>
@@ -383,6 +395,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

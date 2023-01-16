@@ -8,8 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    enum State: Int {
-        case idle
+    enum State: Equatable {
+        case idle(Bool)
         case counting
     }
     private static let period: TimeInterval = 60 * 60
@@ -23,20 +23,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewStart: UIView!
     @IBOutlet weak var labelStart: UILabel!
     @IBOutlet weak var buttonHistory: UIButton!
+    @IBOutlet weak var buttonStop: UIButton!
+    private var alc: UIAlertController?
     private var dataModel: DataModel? {
         didSet {
             updateUI()
         }
     }
-    private var state: State = .idle {
+    private var state: State = .idle(false) {
         didSet {
             guard state != oldValue else {
                 return
             }
-            if state == .counting {
+            switch state {
+            case .counting:
                 startCounting()
-            } else {
-                endCounting()
+            case .idle(let needSave):
+                endCounting(needSave)
             }
         }
     }
@@ -57,13 +60,14 @@ class ViewController: UIViewController {
         buttonHistory.isEnabled = false
         labelStart.text = "Tap"
         UIView.animate(withDuration: 0.2) {
-            self.viewStart.backgroundColor = .systemPink
+            self.viewStart.backgroundColor = .systemGreen
         }
         dataModel = DataModel()
         startTimer()
         update()
+        buttonStop.isHidden = false
     }
-    private func endCounting() {
+    private func endCounting(_ needSave: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
         buttonHistory.isEnabled = true
         labelStart.text = "Start"
@@ -74,16 +78,32 @@ class ViewController: UIViewController {
         dateLastRecord = nil
         timer?.invalidate()
         timer = nil
-        dataModel?.save()
-        performSegue(withIdentifier: "goToEnd", sender: nil)
+        buttonStop.isHidden = true
+        if needSave {
+            dataModel?.save()
+            alc?.dismiss(animated: true)
+            performSegue(withIdentifier: "goToEnd", sender: nil)
+        }
+        dataModel = nil
     }
     @IBAction func tapped(_ sender: UITapGestureRecognizer) {
-        if state == .idle {
+        switch state {
+        case .idle(_):
             state = .counting
-        } else {
+        default:
             dataModel?.addRecord()
             increaseCountIfNeeded()
             updateUI()
+        }
+    }
+    @IBAction func stopTapped(_ sender: UIButton) {
+        alc = UIAlertController(title: "Are you sure to stop?", message: "This measurement won't be recorded.", preferredStyle: .actionSheet)
+        alc?.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alc?.addAction(UIAlertAction(title: "Stop", style: .destructive) { [weak self] _ in
+            self?.state = .idle(false)
+        })
+        if let alc {
+            present(alc, animated: true)
         }
     }
     private func startTimer() {
@@ -102,7 +122,7 @@ class ViewController: UIViewController {
                 let sec: Int = countDown % 60
                 labelTime.text = "\(String(format: "%02d", min)) : \(String(format: "%02d", sec))"
             } else {
-                state = .idle
+                state = .idle(true)
             }
         } else {
             labelTime.text = ""
