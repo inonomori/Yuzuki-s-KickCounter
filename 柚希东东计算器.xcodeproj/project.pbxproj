@@ -19,10 +19,12 @@
 		ACD74758297434E600242EEE /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD74757297434E600242EEE /* BarChart.swift */; };
 		ACD754692974E88200242EEE /* CollectionValue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD754682974E88200242EEE /* CollectionValue+Extension.swift */; };
 		ACD7546B2974EB8000242EEE /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7546A2974EB8000242EEE /* Date+Extension.swift */; };
+		ACD76E862975018400242EEE /* DailyLineMarkChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD76E852975018400242EEE /* DailyLineMarkChartViewController.swift */; };
+		ACD76E882975024E00242EEE /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD76E872975024E00242EEE /* LineChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ACD7473A2971B39900242EEE /* 柚希动动计数器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "柚希动动计数器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD7473A2971B39900242EEE /* 柚希胎动计数器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "柚希胎动计数器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD7473D2971B39900242EEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACD7473F2971B39900242EEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ACD747412971B39900242EEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		ACD74757297434E600242EEE /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		ACD754682974E88200242EEE /* CollectionValue+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionValue+Extension.swift"; sourceTree = "<group>"; };
 		ACD7546A2974EB8000242EEE /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		ACD76E852975018400242EEE /* DailyLineMarkChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLineMarkChartViewController.swift; sourceTree = "<group>"; };
+		ACD76E872975024E00242EEE /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +64,7 @@
 		ACD7473B2971B39900242EEE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACD7473A2971B39900242EEE /* 柚希动动计数器.app */,
+				ACD7473A2971B39900242EEE /* 柚希胎动计数器.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,8 +79,10 @@
 				ACD7475329727E2C00242EEE /* EndViewController.swift */,
 				ACD747552972840E00242EEE /* DataModel.swift */,
 				ACD74757297434E600242EEE /* BarChart.swift */,
+				ACD76E872975024E00242EEE /* LineChart.swift */,
 				ACD754682974E88200242EEE /* CollectionValue+Extension.swift */,
 				ACD7546A2974EB8000242EEE /* Date+Extension.swift */,
+				ACD76E852975018400242EEE /* DailyLineMarkChartViewController.swift */,
 				ACD747432971B39900242EEE /* Main.storyboard */,
 				ACD747462971B39A00242EEE /* Assets.xcassets */,
 				ACD747482971B39A00242EEE /* LaunchScreen.storyboard */,
@@ -88,9 +94,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ACD747392971B39900242EEE /* 柚希动动计数器 */ = {
+		ACD747392971B39900242EEE /* 柚希胎动计数器 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACD7474E2971B39A00242EEE /* Build configuration list for PBXNativeTarget "柚希动动计数器" */;
+			buildConfigurationList = ACD7474E2971B39A00242EEE /* Build configuration list for PBXNativeTarget "柚希胎动计数器" */;
 			buildPhases = (
 				ACD747362971B39900242EEE /* Sources */,
 				ACD747372971B39900242EEE /* Frameworks */,
@@ -100,9 +106,9 @@
 			);
 			dependencies = (
 			);
-			name = "柚希动动计数器";
+			name = "柚希胎动计数器";
 			productName = "柚希东东计算器";
-			productReference = ACD7473A2971B39900242EEE /* 柚希动动计数器.app */;
+			productReference = ACD7473A2971B39900242EEE /* 柚希胎动计数器.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -133,7 +139,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ACD747392971B39900242EEE /* 柚希动动计数器 */,
+				ACD747392971B39900242EEE /* 柚希胎动计数器 */,
 			);
 		};
 /* End PBXProject section */
@@ -157,8 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD747422971B39900242EEE /* ViewController.swift in Sources */,
+				ACD76E862975018400242EEE /* DailyLineMarkChartViewController.swift in Sources */,
 				ACD7475429727E2C00242EEE /* EndViewController.swift in Sources */,
 				ACD7473E2971B39900242EEE /* AppDelegate.swift in Sources */,
+				ACD76E882975024E00242EEE /* LineChart.swift in Sources */,
 				ACD754692974E88200242EEE /* CollectionValue+Extension.swift in Sources */,
 				ACD747402971B39900242EEE /* SceneDelegate.swift in Sources */,
 				ACD7475229727A5C00242EEE /* HistoryViewController.swift in Sources */,
@@ -372,7 +380,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACD7474E2971B39A00242EEE /* Build configuration list for PBXNativeTarget "柚希动动计数器" */ = {
+		ACD7474E2971B39A00242EEE /* Build configuration list for PBXNativeTarget "柚希胎动计数器" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACD7474F2971B39A00242EEE /* Debug */,

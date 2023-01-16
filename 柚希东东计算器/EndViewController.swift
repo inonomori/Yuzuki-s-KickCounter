@@ -20,16 +20,8 @@ class EndViewController: UIViewController {
         labelTap.text = "Total Tap: \(data?.rawRecords.count ?? 0)"
         if let dateToday = data?.dateStart {
             let recordsInToday: [DataModel] = GlobalSettings.data[dateToday.toYYYYMMDD] ?? []
-            let totalCount: Float = Float(recordsInToday.reduce(0) { partialResult, dataModel in
-                return partialResult + dataModel.count
-            })
-            let pedicted: Int = Int((totalCount / Float(recordsInToday.count)) * 12.0)
-            labelPredictedCount.text = "\(pedicted)"
-            let formate = DateFormatter()
-            formate.setLocalizedDateFormatFromTemplate("yyyy-MM-dd")
-            formate.timeZone = TimeZone.current
-            formate.locale = Locale.current
-            labelPredictedCountTitle.text = "Predicted Daily Count (\(formate.string(from: dateToday)))"
+            labelPredictedCount.text = "\(recordsInToday.predictedDailyCount)"
+            labelPredictedCountTitle.text = "Predicted Daily Count (\(dateToday.toYYYYMMDD))"
         }
     }
     @IBSegueAction func toChart(_ coder: NSCoder) -> UIViewController? {

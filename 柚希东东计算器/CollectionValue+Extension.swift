@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension Array where Element: Equatable {
+extension Array where Element: Equatable {
     
     /// 移动元素
     ///
@@ -46,7 +46,7 @@ public extension Array where Element: Equatable {
     }
 }
 
-public extension Array where Element: Hashable {
+extension Array where Element: Hashable {
     
     /// 去重后的数组
     var unique: [Element] {
@@ -59,7 +59,7 @@ public extension Array where Element: Hashable {
 }
 
 
-public extension Array {
+extension Array {
     
     // 安全访问
     subscript (safe index: Index) -> Element? {
@@ -156,6 +156,18 @@ public extension Array {
         var leftM: Array<Element> = left
         leftM += right
         return leftM
+    }
+}
+
+extension Array where Element == DataModel {
+    var predictedDailyCount: Int {
+        guard count > 0 else {
+            return 0
+        }
+        let totalCount: Float = Float(reduce(0) { partialResult, dataModel in
+            return partialResult + dataModel.count
+        })
+        return Int((totalCount / Float(count)) * 12.0)
     }
 }
 

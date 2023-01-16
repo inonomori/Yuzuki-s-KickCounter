@@ -14,8 +14,19 @@ fileprivate var formater: DateFormatter = {
     return formate
 }()
 
+fileprivate var formater2: DateFormatter = {
+    let formate = DateFormatter()
+    formate.dateFormat = "MM/dd"
+    formate.timeZone = TimeZone.current
+    return formate
+}()
+
+
 extension Date {
     var toYYYYMMDD: String {
         formater.string(from: self)
+    }
+    var toMMDD: String {
+        formater2.string(from: self)
     }
 }
