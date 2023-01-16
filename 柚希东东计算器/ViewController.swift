@@ -97,10 +97,22 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func stopTapped(_ sender: UIButton) {
-        alc = UIAlertController(title: "Are you sure to stop?", message: "This measurement won't be recorded.", preferredStyle: .actionSheet)
+        alc = UIAlertController(title: "Stop", message: "Do you want to save this measurement?", preferredStyle: .actionSheet)
         alc?.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alc?.addAction(UIAlertAction(title: "Stop", style: .destructive) { [weak self] _ in
-            self?.state = .idle(false)
+        alc?.addAction(UIAlertAction(title: "Save", style: .default) { [weak self] _ in
+            self?.state = .idle(true)
+        })
+        alc?.addAction(UIAlertAction(title: "Discard", style: .destructive) { [weak self] _ in
+            self?.alc?.dismiss(animated: true) { [weak self] in
+                self?.alc = UIAlertController(title: "Discard", message: "Are you sure?", preferredStyle: .alert)
+                self?.alc?.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                self?.alc?.addAction(UIAlertAction(title: "Discard", style: .destructive) { [weak self] _ in
+                    self?.state = .idle(false)
+                })
+                if let alc = self?.alc {
+                    self?.present(alc, animated: true)
+                }
+            }
         })
         if let alc {
             present(alc, animated: true)
