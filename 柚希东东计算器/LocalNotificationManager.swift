@@ -13,7 +13,10 @@ class LocalNotificationManager {
     private var center: UNUserNotificationCenter {
         UNUserNotificationCenter.current()
     }
-    func gainPermission() {
+    func gainPermissionIfNecessary() {
+        guard GlobalSettings.notificationDates.count > 0 else {
+            return
+        }
         center.getNotificationSettings { [weak self] settings in
             switch settings.authorizationStatus {
             case .authorized:
@@ -33,18 +36,14 @@ class LocalNotificationManager {
         center.removeAllPendingNotificationRequests()
         let message = "Time to measure your fetal movements!"
         let title = "Fetal Movements"
-        let dates: [DateComponents] = [
-            DateComponents.dateComponentFor(hour: 9, min: 0),
-            DateComponents.dateComponentFor(hour: 15, min: 0),
-            DateComponents.dateComponentFor(hour: 21, min: 0)
-        ]
+        let dates: [NotificationDataModel] = GlobalSettings.notificationDates
         for d in dates {
             let content = UNMutableNotificationContent()
             content.title = NSString.localizedUserNotificationString(forKey: title, arguments: nil)
             content.body = NSString.localizedUserNotificationString(forKey: message, arguments: nil)
             content.sound = UNNotificationSound.default
-            let trigger = UNCalendarNotificationTrigger(dateMatching: d, repeats: true)
-            let request = UNNotificationRequest(identifier: "Alarm_\(d)", content: content, trigger: trigger)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: d.date, repeats: true)
+            let request = UNNotificationRequest(identifier: d.id.uuidString, content: content, trigger: trigger)
             center.add(request) { _ in }
         }
     }

@@ -13,7 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        LocalNotificationManager.shared.gainPermission()
+        // save the default notification dates, so it wont generate uuid on every launches.
+        GlobalSettings.notificationDates = GlobalSettings.notificationDates
+        LocalNotificationManager.shared.gainPermissionIfNecessary()
         return true
     }
 

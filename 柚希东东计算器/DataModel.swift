@@ -47,32 +47,45 @@ class DataModel: Codable {
     }
 }
 
+class NotificationDataModel: Codable {
+    var id: UUID = UUID()
+    var date: DateComponents
+    init(date: DateComponents) {
+        self.date = date
+    }
+}
+
 @propertyWrapper
-    struct UserDefault<T: Codable> {
-        let key: String
-        let defaultValue: T
-        init(_ key: String, defaultValue: T) {
-            self.key = key
-            self.defaultValue = defaultValue
-        }
-        var wrappedValue: T {
-            get {
-                if let data = UserDefaults.standard.object(forKey: key) as? Data,
-                    let user = try? JSONDecoder().decode(T.self, from: data) {
-                    return user
-                }
-                return defaultValue
+struct UserDefault<T: Codable> {
+    let key: String
+    let defaultValue: T
+    init(_ key: String, defaultValue: T) {
+        self.key = key
+        self.defaultValue = defaultValue
+    }
+    var wrappedValue: T {
+        get {
+            if let data = UserDefaults.standard.object(forKey: key) as? Data,
+               let user = try? JSONDecoder().decode(T.self, from: data) {
+                return user
             }
-            set {
-                if let encoded = try? JSONEncoder().encode(newValue) {
-                    UserDefaults.standard.set(encoded, forKey: key)
-                }
+            return defaultValue
+        }
+        set {
+            if let encoded = try? JSONEncoder().encode(newValue) {
+                UserDefaults.standard.set(encoded, forKey: key)
             }
         }
     }
+}
 
 
 enum GlobalSettings {
     @UserDefault("com.my.datas_new", defaultValue:[:]) static var data: [String:[DataModel]]
     @UserDefault("com.my.datas", defaultValue:[]) static var oldData: [DataModel]
+    @UserDefault("com.my.notificationDates", defaultValue:[
+        NotificationDataModel(date: DateComponents.dateComponentFor(hour: 9, min: 0)),
+        NotificationDataModel(date: DateComponents.dateComponentFor(hour: 15, min: 0)),
+        NotificationDataModel(date: DateComponents.dateComponentFor(hour: 21, min: 0))
+    ]) static var notificationDates: [NotificationDataModel]
 }
