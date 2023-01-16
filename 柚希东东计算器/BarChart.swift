@@ -8,58 +8,22 @@
 import SwiftUI
 import Charts
 
+struct BarMarkModel: Identifiable {
+    var xName: String
+    var value: Int
+    var id = UUID()
+}
+
 struct BarChart: View {
-    var data: [Int]
+    var data: [BarMarkModel]
     var body: some View {
         Chart {
-            BarMark(
-                x: .value("Time", "5"),
-                y: .value("Tap", data[0])
-            )
-            BarMark(
-                x: .value("Time", "10"),
-                y: .value("Tap", data[1])
-            )
-            BarMark(
-                x: .value("Time", "15"),
-                y: .value("Tap", data[2])
-            )
-            BarMark(
-                x: .value("Time", "20"),
-                y: .value("Tap", data[3])
-            )
-            BarMark(
-                x: .value("Time", "25"),
-                y: .value("Tap", data[4])
-            )
-            BarMark(
-                x: .value("Time", "30"),
-                y: .value("Tap", data[5])
-            )
-            BarMark(
-                x: .value("Time", "35"),
-                y: .value("Tap", data[6])
-            )
-            BarMark(
-                x: .value("Time", "40"),
-                y: .value("Tap", data[7])
-            )
-            BarMark(
-                x: .value("Time", "45"),
-                y: .value("Tap", data[8])
-            )
-            BarMark(
-                x: .value("Time", "50"),
-                y: .value("Tap", data[9])
-            )
-            BarMark(
-                x: .value("Time", "55"),
-                y: .value("Tap", data[10])
-            )
-            BarMark(
-                x: .value("Time", "60"),
-                y: .value("Tap", data[11])
-            )
+            ForEach(data) { datum in
+                BarMark(
+                    x: .value("Time", datum.xName),
+                    y: .value("Tap", datum.value)
+                )
+            }
         }
     }
 }
@@ -67,10 +31,13 @@ struct BarChart: View {
 class BarChartHostingViewController: UIHostingController<BarChart> {
     init?(coder aDecoder: NSCoder, data: DataModel) {
         let startTime = data.dateStart.timeIntervalSince1970
-        var dataCount: [Int] = Array(repeating: 0, count: 12)
+        var dataCount: [BarMarkModel] = []
+        for i in 0..<12 {
+            dataCount.append(BarMarkModel(xName: "\((i + 1) * 5)", value: 0))
+        }
         for i in data.rawRecords {
             let index = Int((i - startTime) / (5.0 * 60.0))
-            dataCount[index] = dataCount[index] + 1
+            dataCount[index].value += 1
         }
         super.init(coder: aDecoder, rootView: BarChart(data: dataCount))
     }
