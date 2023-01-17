@@ -13,31 +13,42 @@ class LocalNotificationManager {
     private var center: UNUserNotificationCenter {
         UNUserNotificationCenter.current()
     }
-    func gainPermissionIfNecessary() {
-        guard GlobalSettings.notificationDates.count > 0 else {
-            return
-        }
+    func notificationSettingChanged(completion:((Bool) -> Void)?) {
+        center.removeAllPendingNotificationRequests()
         center.getNotificationSettings { [weak self] settings in
             switch settings.authorizationStatus {
             case .authorized:
                 self?.scheduleLocalNotification()
+                completion?(true)
             case .notDetermined:
                 self?.center.requestAuthorization(options: [.alert, .sound]) { [weak self] (granted, error) in
                     if granted {
                         self?.scheduleLocalNotification()
+                        completion?(true)
+                    } else {
+                        completion?(false)
                     }
                 }
+            default:
+                completion?(false)
+            }
+        }
+    }
+    func atLaunch() {
+        center.getNotificationSettings { [weak self] settings in
+            switch settings.authorizationStatus {
+            case .authorized:
+                self?.scheduleLocalNotification()
             default: break
             }
         }
     }
     func scheduleLocalNotification() {
-        let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
         let message = "Time to measure your fetal movements!"
         let title = "Fetal Movements"
         let dates: [NotificationDataModel] = GlobalSettings.notificationDates
-        for d in dates {
+        for d in dates where d.isEnable {
             let content = UNMutableNotificationContent()
             content.title = NSString.localizedUserNotificationString(forKey: title, arguments: nil)
             content.body = NSString.localizedUserNotificationString(forKey: message, arguments: nil)

@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -64,17 +65,11 @@
                             <constraint firstItem="ZVI-CG-fMo" firstAttribute="centerX" secondItem="tsc-yx-EOE" secondAttribute="centerX" id="zbI-U5-xtF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aI2-ie-Bbp">
-                        <barButtonItem key="rightBarButtonItem" id="Qoo-91-wfq">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ica-14-0Gy">
-                                <rect key="frame" x="273.33333333333331" y="5" width="103.66666666666669" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="DailyChart"/>
-                                <connections>
-                                    <segue destination="0Ba-4D-mCs" kind="show" id="76r-kw-gtN"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="aI2-ie-Bbp">
+                        <barButtonItem key="rightBarButtonItem" image="chart.xyaxis.line" catalog="system" id="QvH-PV-D8Q">
+                            <connections>
+                                <segue destination="0Ba-4D-mCs" kind="show" id="9DK-xk-0dv"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <userDefinedRuntimeAttributes>
@@ -88,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dET-nH-y2q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073" y="-416"/>
+            <point key="canvasLocation" x="2062" y="175"/>
         </scene>
         <!--Bar Chart Hosting View Controller-->
         <scene sceneID="21L-71-kLY">
@@ -96,7 +91,7 @@
                 <hostingController id="wyF-RG-8Qe" customClass="BarChartHostingViewController" customModule="柚希胎动计数器" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gi-eO-8xP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2880" y="-416"/>
+            <point key="canvasLocation" x="2830" y="192"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -107,26 +102,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eu3-ac-KTh">
-                                <rect key="frame" x="146.66666666666666" y="321" width="100" height="147"/>
+                                <rect key="frame" x="146.66666666666666" y="274" width="100" height="148"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="kec-w1-rRh"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7Y-28-sLt">
-                                <rect key="frame" x="183.66666666666666" y="273" width="26" height="48"/>
+                                <rect key="frame" x="183.66666666666666" y="226" width="26" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqu-aW-hUV">
-                                <rect key="frame" x="183.66666666666666" y="380.66666666666669" width="26" height="48"/>
+                                <rect key="frame" x="183.66666666666666" y="334" width="26" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ma-dc-t56">
-                                <rect key="frame" x="30" y="468" width="333" height="150"/>
+                                <rect key="frame" x="30" y="422" width="333" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugd-Y1-6vN">
                                         <rect key="frame" x="122" y="51" width="89" height="48"/>
@@ -161,20 +156,20 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tapped" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Qe-OD-bN8">
-                                <rect key="frame" x="168" y="232" width="57" height="21"/>
+                                <rect key="frame" x="168" y="200" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb4-Jq-jgF">
-                                <rect key="frame" x="173" y="339.66666666666669" width="47" height="21"/>
+                                <rect key="frame" x="173" y="308" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNF-h7-G4L">
-                                <rect key="frame" x="158.66666666666666" y="763" width="76" height="35"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Stop">
+                                <rect key="frame" x="176.66666666666666" y="766" width="40" height="32"/>
+                                <buttonConfiguration key="configuration" style="filled" image="Xmark">
                                     <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
@@ -191,44 +186,43 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="AKM-dA-Jyx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="0Eh-kq-jAC"/>
-                            <constraint firstItem="zqu-aW-hUV" firstAttribute="top" secondItem="rb4-Jq-jgF" secondAttribute="bottom" constant="20" id="4bP-hF-fa5"/>
+                            <constraint firstItem="zqu-aW-hUV" firstAttribute="top" secondItem="rb4-Jq-jgF" secondAttribute="bottom" constant="5" id="4bP-hF-fa5"/>
                             <constraint firstItem="1ma-dc-t56" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="67P-fL-TcZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1ma-dc-t56" secondAttribute="trailing" constant="30" id="7hd-vH-aQv"/>
                             <constraint firstItem="rb4-Jq-jgF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B6m-yT-234"/>
                             <constraint firstItem="zqu-aW-hUV" firstAttribute="centerX" secondItem="Eu3-ac-KTh" secondAttribute="centerX" id="Ekg-hd-xsc"/>
                             <constraint firstItem="AKM-dA-Jyx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G3u-jv-zab"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1ma-dc-t56" secondAttribute="bottom" constant="200" id="InD-M2-fS4"/>
-                            <constraint firstItem="L7Y-28-sLt" firstAttribute="top" secondItem="8Qe-OD-bN8" secondAttribute="bottom" constant="20" id="JAg-uh-MGz"/>
+                            <constraint firstItem="1ma-dc-t56" firstAttribute="top" secondItem="zqu-aW-hUV" secondAttribute="bottom" constant="40" id="G6w-Md-Ikz"/>
+                            <constraint firstItem="L7Y-28-sLt" firstAttribute="top" secondItem="8Qe-OD-bN8" secondAttribute="bottom" constant="5" id="JAg-uh-MGz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PNF-h7-G4L" secondAttribute="bottom" constant="20" id="JTX-cq-R5V"/>
                             <constraint firstItem="Eu3-ac-KTh" firstAttribute="top" secondItem="L7Y-28-sLt" secondAttribute="bottom" id="LpX-E6-1up"/>
                             <constraint firstItem="1ma-dc-t56" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XfW-Hd-lrV"/>
                             <constraint firstItem="Eu3-ac-KTh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZdG-vp-swC"/>
                             <constraint firstItem="PNF-h7-G4L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bWc-Ky-nNU"/>
                             <constraint firstItem="zqu-aW-hUV" firstAttribute="centerY" secondItem="Eu3-ac-KTh" secondAttribute="centerY" constant="10" id="eOX-VQ-Vuc"/>
+                            <constraint firstItem="L7Y-28-sLt" firstAttribute="top" secondItem="AKM-dA-Jyx" secondAttribute="bottom" constant="50" id="mx4-Dg-gPm"/>
                             <constraint firstItem="1ma-dc-t56" firstAttribute="top" secondItem="Eu3-ac-KTh" secondAttribute="bottom" id="nBS-kw-XIN"/>
-                            <constraint firstItem="L7Y-28-sLt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="170" id="seB-wi-lVw"/>
                             <constraint firstItem="8Qe-OD-bN8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vod-at-E5N"/>
                             <constraint firstItem="L7Y-28-sLt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wwH-rg-Zh4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fx8-7V-SOt">
-                        <barButtonItem key="rightBarButtonItem" id="UhV-rR-I6N">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pkC-kS-z0A">
-                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="History"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="fx8-7V-SOt">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="CN5-Fc-2CR" userLabel="Item_setting">
+                                <imageReference key="image" image="alarm" catalog="system" symbolScale="large"/>
                                 <connections>
-                                    <segue destination="aUI-uN-g6j" kind="show" id="4FA-Kr-VAN"/>
+                                    <segue destination="GIQ-Va-kZr" kind="showDetail" id="lCN-Ui-IWW"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="calendar.badge.clock" catalog="system" id="DP5-kB-Y4N" userLabel="Item_history">
+                                <connections>
+                                    <segue destination="aUI-uN-g6j" kind="show" id="U6g-Q0-hkf"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="柚希胎动计数器"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="buttonHistory" destination="pkC-kS-z0A" id="H4P-kA-cuq"/>
+                        <outlet property="buttonHistory" destination="DP5-kB-Y4N" id="yH7-Jl-KPj"/>
                         <outlet property="buttonStop" destination="PNF-h7-G4L" id="EvB-Pb-FYa"/>
                         <outlet property="labelCount" destination="zqu-aW-hUV" id="A47-vm-Sia"/>
                         <outlet property="labelStart" destination="Ugd-Y1-6vN" id="x5u-aM-8iR"/>
@@ -252,8 +246,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kdh-dn-Qq9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BGM-xf-4I9">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="BGM-xf-4I9">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -264,6 +258,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bx-oe-BpW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.64122137404578" y="24.647887323943664"/>
+        </scene>
+        <!--Notification Setting Host View Controller-->
+        <scene sceneID="46c-hG-5vA">
+            <objects>
+                <hostingController id="CYM-ba-t4q" customClass="NotificationSettingHostViewController" customModule="柚希胎动计数器" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="DOC-6l-Ith">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="jFb-AM-NED">
+                            <connections>
+                                <action selector="doneTapped:" destination="CYM-ba-t4q" id="5AD-PV-ll3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Settings"/>
+                    </userDefinedRuntimeAttributes>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CaE-nU-9ye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1857" y="892"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="Fe4-tO-bLq">
@@ -316,17 +329,12 @@
                             <constraint firstItem="ypk-tf-Ac7" firstAttribute="top" secondItem="b0C-vu-dOj" secondAttribute="top" id="hO2-yZ-ZeN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="V5o-Aq-gSM">
-                        <barButtonItem key="rightBarButtonItem" id="Dge-eR-PXD">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gNd-CM-Nj4">
-                                <rect key="frame" x="273.33333333333331" y="5" width="103.66666666666669" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="DailyChart"/>
-                                <connections>
-                                    <segue destination="0Ba-4D-mCs" kind="show" id="Bao-dG-129"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="V5o-Aq-gSM">
+                        <barButtonItem key="rightBarButtonItem" id="3hA-xl-fOT">
+                            <imageReference key="image" image="chart.xyaxis.line" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <segue destination="0Ba-4D-mCs" kind="show" id="p9g-Ae-2e7"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <userDefinedRuntimeAttributes>
@@ -339,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxK-Z8-Pxy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="346"/>
+            <point key="canvasLocation" x="2062" y="-589"/>
         </scene>
         <!--Daily Line Mark Chart View Controller-->
         <scene sceneID="Asw-R1-aOb">
@@ -350,7 +358,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uz4-Ow-YzH">
-                                <rect key="frame" x="5" y="232.66666666666669" width="383" height="255.66666666666669"/>
+                                <rect key="frame" x="5" y="258.66666666666669" width="383" height="255.66666666666669"/>
                                 <connections>
                                     <segue destination="b0B-Ig-cdE" kind="embed" identifier="chatHostEmbeded" id="rnM-g3-g02"/>
                                 </connections>
@@ -365,14 +373,14 @@
                             <constraint firstItem="OMA-Vv-zVR" firstAttribute="trailing" secondItem="uz4-Ow-YzH" secondAttribute="trailing" constant="5" id="zJM-8o-stm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pqH-Ka-vUV"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="pqH-Ka-vUV"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Daily Chart"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSo-sO-0rU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2878.6259541984732" y="109.85915492957747"/>
+            <point key="canvasLocation" x="3160" y="-358"/>
         </scene>
         <!--Line Chart Hosting View Controller-->
         <scene sceneID="c21-0m-awj">
@@ -387,14 +395,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVG-R6-JBq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3638" y="110"/>
+            <point key="canvasLocation" x="3932" y="-358"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lxF-iE-0vV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GIQ-Va-kZr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ijb-q9-4dm">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CYM-ba-t4q" kind="relationship" relationship="rootViewController" id="LoU-7h-vcc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F7h-en-cF8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1063" y="892"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="76r-kw-gtN"/>
-        <segue reference="aVH-3q-e27"/>
+        <segue reference="9DK-xk-0dv"/>
+        <segue reference="Qxy-Ru-Otl"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Xmark" width="128" height="128"/>
+        <image name="alarm" catalog="system" width="123" height="128"/>
+        <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
+        <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

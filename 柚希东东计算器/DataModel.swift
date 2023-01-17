@@ -50,6 +50,17 @@ class DataModel: Codable {
 class NotificationDataModel: Codable {
     var id: UUID = UUID()
     var date: DateComponents
+    var date_d: Date {
+        get {
+            var dc = date
+            dc.calendar = Calendar.current
+            return dc.date ?? Date()
+        }
+        set {
+            date = Calendar.current.dateComponents([.hour, .minute], from: newValue)
+        }
+    }
+    var isEnable: Bool = false
     init(date: DateComponents) {
         self.date = date
     }

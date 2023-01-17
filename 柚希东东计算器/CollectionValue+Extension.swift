@@ -171,3 +171,9 @@ extension Array where Element == DataModel {
     }
 }
 
+extension Array where Element == NotificationDataModel {
+    var allTurnOff: Bool {
+        first { $0.isEnable } == nil
+    }
+}
+

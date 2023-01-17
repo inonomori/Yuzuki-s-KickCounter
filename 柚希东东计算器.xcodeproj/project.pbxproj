@@ -22,6 +22,7 @@
 		ACD76E862975018400242EEE /* DailyLineMarkChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD76E852975018400242EEE /* DailyLineMarkChartViewController.swift */; };
 		ACD76E882975024E00242EEE /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD76E872975024E00242EEE /* LineChart.swift */; };
 		ACD7AB2A29755CD400242EEE /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD7AB2929755CD400242EEE /* LocalNotificationManager.swift */; };
+		ACEEA66E29763A5600E1ACB5 /* NotificationSettingHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEEA66D29763A5600E1ACB5 /* NotificationSettingHostingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		ACD76E852975018400242EEE /* DailyLineMarkChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLineMarkChartViewController.swift; sourceTree = "<group>"; };
 		ACD76E872975024E00242EEE /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		ACD7AB2929755CD400242EEE /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		ACEEA66D29763A5600E1ACB5 /* NotificationSettingHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingHostingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				ACD754682974E88200242EEE /* CollectionValue+Extension.swift */,
 				ACD7546A2974EB8000242EEE /* Date+Extension.swift */,
 				ACD76E852975018400242EEE /* DailyLineMarkChartViewController.swift */,
+				ACEEA66D29763A5600E1ACB5 /* NotificationSettingHostingViewController.swift */,
 				ACD747432971B39900242EEE /* Main.storyboard */,
 				ACD747462971B39A00242EEE /* Assets.xcassets */,
 				ACD747482971B39A00242EEE /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACEEA66E29763A5600E1ACB5 /* NotificationSettingHostingViewController.swift in Sources */,
 				ACD747422971B39900242EEE /* ViewController.swift in Sources */,
 				ACD76E862975018400242EEE /* DailyLineMarkChartViewController.swift in Sources */,
 				ACD7475429727E2C00242EEE /* EndViewController.swift in Sources */,
